@@ -71,9 +71,9 @@ i = 0.05;           % loan interest
 %% CRF and SPPF calculations
 CRF = i * ( (1+i)^n ) / ( (1+i)^n -1); % capital recovery factor
 
-k1 = n_BT : n;      % years needing to change batteries after
-k2 = n_FC : n;      % years needing to change fuel cells after
-k3 = n_HT : n;      % years needing to change hydrogen tanks after
+k1 = n_BT:n_BT:n-1;      % years needing to change batteries after
+k2 = n_FC:n_FC:n-1;      % years needing to change fuel cells after
+k3 = n_HT:n_HT:n-1;      % years needing to change hydrogen tanks after
 
 SPPF1 = (1 + sum(1./(1+i).^k1));  % single payment present factor for BT
 SPPF2 = (1 + sum(1./(1+i).^k2));  % single payment present factor for FC
